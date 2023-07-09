@@ -13,34 +13,5 @@
     flag : 싱글 커맨드 패턴
            단순하게 하나의 작업만 커맨드로 만들때 사용, Cobra-cli에 비해 간단하게 구성할수 있음
 
-## 구조체 command로 커맨드 생성
-    var userCmd = &cobra.Command{
-    	Use:   "user",
-    	Short: "User gRPC Server",
-    	// PreRun: func(cmd *cobra.Command, args []string) {
-    	// 	fmt.Printf("Inside subCmd PreRun with args: %v\n", args)
-    	// },
-    	Run: func(cmd *cobra.Command, args []string) {
-    		// fmt.Printf("Inside subCmd Run with args: %v\n", args)
-    		user.Execute()
-    	},
-    	// PostRun: func(cmd *cobra.Command, args []string) {
-    	// 	fmt.Printf("Inside subCmd PostRun with args: %v\n", args)
-    	// },
-    	// PersistentPostRun: func(cmd *cobra.Command, args []string) {
-    	// 	fmt.Printf("Inside subCmd PersistentPostRun with args: %v\n", args)
-    	// },
-    }
 
-    위의 형태가 기본적인 cobra command를 만드는 형태
-    명령어에 플래그를 추가하는 경우 PersistentFlags 를 사용
-    # kubectl의 플래그 추가 코드
-    cmd.PersistentFlags().StringVar(&pathOptions.LoadingRules.ExplicitPath, pathOptions.ExplicitFileFlag, pathOptions.LoadingRules.ExplicitPath, "use a particular kubeconfig file")
-
-    완성된 커맨드(userCmd)를 AddCommand로 명령어 삽입
-    
-    kubectl 소스코드를 보면 커맨드에 cobra 패키지의 help 함수를 불러 서브 커맨드를 보여주는 방식으로 구현
-
-
-## kubectl - config 코드 분석
-
+              
